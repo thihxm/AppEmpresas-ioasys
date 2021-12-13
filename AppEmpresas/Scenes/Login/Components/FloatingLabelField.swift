@@ -109,9 +109,7 @@ fileprivate struct FloatingLabelTextFieldPreview: View {
     }
 }
 
-struct FloatingLabelTextField_Previews: PreviewProvider {
-    @State static var text: String = ""
-    
+struct FloatingLabelTextField_Previews: PreviewProvider {   
     static var previews: some View {
         Group {
             FloatingLabelTextFieldPreview(isSensitive: false)
