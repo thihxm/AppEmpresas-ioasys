@@ -1,0 +1,386 @@
+{
+	"info": {
+		"_postman_id": "b7724032-ee6c-45b1-9d71-e123d9e6ee55",
+		"name": "App_Empresas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Sign_in",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (responseCode.code === 200)",
+									"{",
+									"    postman.setEnvironmentVariable(\"access-token\", postman.getResponseHeader('access-token'));",
+									"    postman.setEnvironmentVariable(\"client\", postman.getResponseHeader('client'));",
+									"    postman.setEnvironmentVariable(\"uid\", postman.getResponseHeader('uid'));",
+									"}",
+									"",
+									"var responseJSON;",
+									"",
+									"try { responseJSON = JSON.parse(responseBody); }",
+									"catch (e) { }",
+									"",
+									"",
+									"if ('id' in responseJSON)",
+									"{",
+									"    postman.setEnvironmentVariable((\"user_id\"), responseJSON.id);",
+									"}",
+									"",
+									"tests[\"Response time is less than 200ms\"] = responseTime < 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "access-token",
+								"value": "{{access-token}}",
+								"disabled": true
+							},
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"disabled": true
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\" : \"testeapple@ioasys.com.br\",\n  \"password\" : \"12341234\"\n}"
+						},
+						"url": {
+							"raw": "{{dev_host}}/api/{{api_version}}/users/auth/sign_in",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"users",
+								"auth",
+								"sign_in"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Enterprise",
+			"item": [
+				{
+					"name": "Enterprise Index",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (responseCode.code === 200)",
+									"{",
+									"    postman.setEnvironmentVariable(\"access-token\", postman.getResponseHeader('access-token'));",
+									"    postman.setEnvironmentVariable(\"client\", postman.getResponseHeader('client'));",
+									"    postman.setEnvironmentVariable(\"uid\", postman.getResponseHeader('uid'));",
+									"}",
+									"",
+									"var responseJSON;",
+									"",
+									"try { responseJSON = JSON.parse(responseBody); }",
+									"catch (e) { }",
+									"",
+									"",
+									"if ('id' in responseJSON)",
+									"{",
+									"    postman.setEnvironmentVariable((\"user_id\"), responseJSON.id);",
+									"}",
+									"",
+									"tests[\"Response time is less than 200ms\"] = responseTime < 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "access-token",
+								"value": "{{access-token}}",
+								"type": "text"
+							},
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{dev_host}}/api/{{api_version}}/enterprises?enterprise_types=2",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"enterprises"
+							],
+							"query": [
+								{
+									"key": "enterprise_types",
+									"value": "2"
+								}
+							]
+						},
+						"description": "Lista de enterprise_types:\n- [enterprise_type_code, name]\n- [1, \"Agro\"]\n- [2, \"Aviation\"]\n- [3, \"Biotech\"]\n- [4, \"Eco\"]\n- [5, \"Ecommerce\"]\n- [6, \"Education\"]\n- [7, \"Fashion\"]\n- [8, \"Fintech\"]\n- [9, \"Food\"]\n- [10, \"Games\"]\n- [11, \"Health\"]\n- [12, \"IOT\"]\n- [13, \"Logistics\"]\n- [14, \"Media\"]\n- [15, \"Mining\"]\n- [16, \"Products\"]\n- [17, \"Real Estate\"]\n- [18, \"Service\"]\n- [19, \"Smart City\"]\n- [20, \"Social\"]\n- [21, \"Software\"]\n- [22, \"Technology\"]\n- [23, \"Tourism\"]\n- [24, \"Transport\"]"
+					},
+					"response": []
+				},
+				{
+					"name": "Show by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"if (responseCode.code === 200)",
+									"{",
+									"    postman.setEnvironmentVariable(\"access-token\", postman.getResponseHeader('access-token'));",
+									"    postman.setEnvironmentVariable(\"client\", postman.getResponseHeader('client'));",
+									"    postman.setEnvironmentVariable(\"uid\", postman.getResponseHeader('uid'));",
+									"}",
+									"",
+									"var responseJSON;",
+									"",
+									"try { responseJSON = JSON.parse(responseBody); }",
+									"catch (e) { }",
+									"",
+									"",
+									"if ('id' in responseJSON)",
+									"{",
+									"    postman.setEnvironmentVariable((\"user_id\"), responseJSON.id);",
+									"}",
+									"",
+									"tests[\"Response time is less than 200ms\"] = responseTime < 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "access-token",
+								"value": "{{access-token}}"
+							},
+							{
+								"key": "client",
+								"value": "{{client}}"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}"
+							}
+						],
+						"url": {
+							"raw": "{{dev_host}}/api/{{api_version}}/enterprises/1",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"enterprises",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Enterprises Index with Filter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"if (responseCode.code === 200)",
+									"{",
+									"    postman.setEnvironmentVariable(\"access-token\", postman.getResponseHeader('access-token'));",
+									"    postman.setEnvironmentVariable(\"client\", postman.getResponseHeader('client'));",
+									"    postman.setEnvironmentVariable(\"uid\", postman.getResponseHeader('uid'));",
+									"}",
+									"",
+									"var responseJSON;",
+									"",
+									"try { responseJSON = JSON.parse(responseBody); }",
+									"catch (e) { }",
+									"",
+									"",
+									"if ('id' in responseJSON)",
+									"{",
+									"    postman.setEnvironmentVariable((\"user_id\"), responseJSON.id);",
+									"}",
+									"",
+									"tests[\"Response time is less than 200ms\"] = responseTime < 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "access-token",
+								"value": "{{access-token}}"
+							},
+							{
+								"key": "client",
+								"value": "{{client}}"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}"
+							}
+						],
+						"url": {
+							"raw": "{{dev_host}}/api/{{api_version}}/enterprises?enterprise_types=1&name=aQm",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"enterprises"
+							],
+							"query": [
+								{
+									"key": "enterprise_types",
+									"value": "1"
+								},
+								{
+									"key": "name",
+									"value": "aQm"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Enterprises with Name Filter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (responseCode.code === 200)",
+									"{",
+									"    postman.setEnvironmentVariable(\"access-token\", postman.getResponseHeader('access-token'));",
+									"    postman.setEnvironmentVariable(\"client\", postman.getResponseHeader('client'));",
+									"    postman.setEnvironmentVariable(\"uid\", postman.getResponseHeader('uid'));",
+									"}",
+									"",
+									"var responseJSON;",
+									"",
+									"try { responseJSON = JSON.parse(responseBody); }",
+									"catch (e) { }",
+									"",
+									"",
+									"if ('id' in responseJSON)",
+									"{",
+									"    postman.setEnvironmentVariable((\"user_id\"), responseJSON.id);",
+									"}",
+									"",
+									"tests[\"Response time is less than 200ms\"] = responseTime < 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "access-token",
+								"value": "{{access-token}}",
+								"type": "text"
+							},
+							{
+								"key": "client",
+								"value": "{{client}}",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{dev_host}}/api/{{api_version}}/enterprises?name=a",
+							"host": [
+								"{{dev_host}}"
+							],
+							"path": [
+								"api",
+								"{{api_version}}",
+								"enterprises"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "a"
+								}
+							]
+						},
+						"description": "Lista de enterprise_types:\n- [enterprise_type_code, name]\n- [1, \"Agro\"]\n- [2, \"Aviation\"]\n- [3, \"Biotech\"]\n- [4, \"Eco\"]\n- [5, \"Ecommerce\"]\n- [6, \"Education\"]\n- [7, \"Fashion\"]\n- [8, \"Fintech\"]\n- [9, \"Food\"]\n- [10, \"Games\"]\n- [11, \"Health\"]\n- [12, \"IOT\"]\n- [13, \"Logistics\"]\n- [14, \"Media\"]\n- [15, \"Mining\"]\n- [16, \"Products\"]\n- [17, \"Real Estate\"]\n- [18, \"Service\"]\n- [19, \"Smart City\"]\n- [20, \"Social\"]\n- [21, \"Software\"]\n- [22, \"Technology\"]\n- [23, \"Tourism\"]\n- [24, \"Transport\"]"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
