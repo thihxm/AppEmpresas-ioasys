@@ -1,5 +1,5 @@
 //
-//  FloatingLabelTextField.swift
+//  FloatingLabelField.swift
 //  AppEmpresas
 //
 //  Created by Thiago Medeiros on 11/12/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FloatingLabelTextField: View {
+struct FloatingLabelField: View {
     let title: String
     let isSensitive: Bool
     var errorMessage: String = ""
@@ -105,7 +105,7 @@ fileprivate struct FloatingLabelTextFieldPreview: View {
     @State private var text: String = ""
     
     var body: some View {
-        FloatingLabelTextField(title: "Email", isSensitive: isSensitive, errorMessage: errorMessage, text: $text)
+        FloatingLabelField(title: "Email", isSensitive: isSensitive, errorMessage: errorMessage, text: $text)
     }
 }
 

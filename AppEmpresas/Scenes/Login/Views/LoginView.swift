@@ -42,8 +42,8 @@ struct LoginView: View {
                     Text("Digite seus dados para continuar")
                     
                     VStack(spacing: 16) {
-                        FloatingLabelTextField(title: "Email", isSensitive: false, text: $email)
-                        FloatingLabelTextField(title: "Senha", isSensitive: true, text: $password)
+                        FloatingLabelField(title: "Email", isSensitive: false, text: $email)
+                        FloatingLabelField(title: "Senha", isSensitive: true, text: $password)
                     }
                     .padding(.bottom, 10)
                     
