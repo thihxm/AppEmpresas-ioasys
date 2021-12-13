@@ -26,8 +26,10 @@ struct LoginButton: View {
     }
 }
 
+#if DEBUG
 struct LoginButton_Previews: PreviewProvider {
     static var previews: some View {
         LoginButton()
     }
 }
+#endif

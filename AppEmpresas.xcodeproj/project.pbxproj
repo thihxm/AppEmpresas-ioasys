@@ -15,6 +15,8 @@
 		AFA57D882765435F00FD4CB4 /* Color+AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA57D872765435F00FD4CB4 /* Color+AppColors.swift */; };
 		AFA57D8A276546ED00FD4CB4 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA57D89276546ED00FD4CB4 /* LoginView.swift */; };
 		AFA57D8C276556DF00FD4CB4 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA57D8B276556DF00FD4CB4 /* LoginButton.swift */; };
+		AFB744EC2767939500E37741 /* BusinessInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB744EB2767939500E37741 /* BusinessInfoView.swift */; };
+		AFB744EE276794EE00E37741 /* RoundedCornersModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB744ED276794EE00E37741 /* RoundedCornersModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		AFA57D872765435F00FD4CB4 /* Color+AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+AppColors.swift"; sourceTree = "<group>"; };
 		AFA57D89276546ED00FD4CB4 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		AFA57D8B276556DF00FD4CB4 /* LoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
+		AFB744EB2767939500E37741 /* BusinessInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessInfoView.swift; sourceTree = "<group>"; };
+		AFB744ED276794EE00E37741 /* RoundedCornersModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornersModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,7 @@
 		AFA57D7F276540E000FD4CB4 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				AFB744E62767933D00E37741 /* BusinessInfo */,
 				AFA57D80276540EA00FD4CB4 /* Login */,
 			);
 			path = Scenes;
@@ -123,8 +128,41 @@
 			isa = PBXGroup;
 			children = (
 				AFA57D872765435F00FD4CB4 /* Color+AppColors.swift */,
+				AFB744ED276794EE00E37741 /* RoundedCornersModifier.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		AFB744E62767933D00E37741 /* BusinessInfo */ = {
+			isa = PBXGroup;
+			children = (
+				AFB744E72767934B00E37741 /* Components */,
+				AFB744E92767935600E37741 /* ViewModels */,
+				AFB744E82767935200E37741 /* Views */,
+			);
+			path = BusinessInfo;
+			sourceTree = "<group>";
+		};
+		AFB744E72767934B00E37741 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		AFB744E82767935200E37741 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AFB744EB2767939500E37741 /* BusinessInfoView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AFB744E92767935600E37741 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,7 +237,9 @@
 			files = (
 				AFA57D74276539D400FD4CB4 /* ContentView.swift in Sources */,
 				AFA57D8C276556DF00FD4CB4 /* LoginButton.swift in Sources */,
+				AFB744EC2767939500E37741 /* BusinessInfoView.swift in Sources */,
 				AFA57D882765435F00FD4CB4 /* Color+AppColors.swift in Sources */,
+				AFB744EE276794EE00E37741 /* RoundedCornersModifier.swift in Sources */,
 				AFA57D852765411D00FD4CB4 /* FloatingLabelField.swift in Sources */,
 				AFA57D8A276546ED00FD4CB4 /* LoginView.swift in Sources */,
 				AFA57D72276539D400FD4CB4 /* AppEmpresasApp.swift in Sources */,
