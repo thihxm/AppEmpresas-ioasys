@@ -40,6 +40,7 @@ class SearchBusinessViewModel: ObservableObject {
     
     func selectEnterprise(_ enterprise: Enterprise) {
         selectedEnterprise = enterprise
+        showDetailsView = true
     }
     
     func onSearch() {

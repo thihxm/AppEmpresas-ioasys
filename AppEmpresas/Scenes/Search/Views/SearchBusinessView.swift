@@ -44,24 +44,31 @@ struct SearchBusinessView: View {
                     .transition(.opacity)
             }
             
+            SearchField(text: $vm.searchText)
+                .focused($isSearching)
+
             if let enterprises = vm.enterprises, !vm.searchText.isEmpty {
-                LazyVGrid(columns: columns) {
-                    ForEach(enterprises, id: \.id) { enterprise in
-                        Button(action: {
-                            vm.selectEnterprise(enterprise)
-                        }) {
-                            EnterpriseCard(name: enterprise.enterprise_name, imageUrl: enterprise.photoURL())
+                ScrollView {
+                    LazyVGrid(columns: columns) {
+                        ForEach(enterprises, id: \.id) { enterprise in
+                            Button(action: {
+                                vm.selectEnterprise(enterprise)
+                            }) {
+                                EnterpriseCard(name: enterprise.enterprise_name, imageUrl: enterprise.photoURL())
+                            }
+                            .buttonStyle(PlainButtonStyle())
                         }
                     }
                 }
+                .padding()
             }
             
-            SearchField(text: $vm.searchText)
-                .focused($isSearching)
-            
-            if vm.selectedEnterprise != nil {
+            if let selectedEnterprise = vm.selectedEnterprise {
                 NavigationLink("", isActive: $vm.showDetailsView) {
-                    BusinessInfoView(businessInfo: vm.selectedEnterprise!.description)
+                    BusinessInfoView(
+                        businessInfo: selectedEnterprise.description,
+                        imageUrl: selectedEnterprise.photoURL()
+                    )
                 }
             }
         }

@@ -20,7 +20,7 @@ struct EnterpriseCard: View {
                     AsyncImage(url: imageUrl) { image in
                         image
                             .resizable()
-                            .aspectRatio(contentMode: .fit)
+                            .scaledToFill()
                     } placeholder: {
                         ProgressView()
                     }
@@ -47,6 +47,6 @@ struct EnterpriseCard: View {
 
 struct EnterpriseCard_Previews: PreviewProvider {
     static var previews: some View {
-        EnterpriseCard(name: "McDonald's", imageUrl: "https://empresas.ioasys.com.br/uploads/enterprise/photo/1/240.jpeg")
+        EnterpriseCard(name: "McDonald's", imageUrl: URL(string: "https://empresas.ioasys.com.br/uploads/enterprise/photo/1/240.jpeg"))
     }
 }
