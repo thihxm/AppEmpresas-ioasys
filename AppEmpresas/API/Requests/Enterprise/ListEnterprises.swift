@@ -13,6 +13,7 @@ struct ListEnterprisesDTO: Codable {
 struct ListEnterprises: Request {
     typealias ReturnType = ListEnterprisesDTO
     var endpoint: Endpoint
+    var headers: [String : String]?
     
     init(enterprise_type: Int?, name: String?) {
         var queryItems: [URLQueryItem] = []
@@ -25,5 +26,15 @@ struct ListEnterprises: Request {
         }
         
         self.endpoint = Endpoint(path: "/enterprises", queryItems: queryItems)
+        
+        guard let accessToken = UserDefaults.standard.string(forKey: "accessToken") else { return }
+        guard let client = UserDefaults.standard.string(forKey: "client") else { return }
+        guard let uid = UserDefaults.standard.string(forKey: "uid") else { return }
+        
+        self.headers = [
+            "access-token": accessToken,
+            "client": client,
+            "uid": uid
+        ]
     }
 }

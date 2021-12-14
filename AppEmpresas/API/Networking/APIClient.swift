@@ -24,4 +24,14 @@ struct APIClient {
         let requestPublisher: RequestPublisher = networker.dispatch(request: urlRequest)
         return requestPublisher.eraseToAnyPublisher()
     }
+    
+    func dispatchHeaders<R: Request>(_ request: R) -> AnyPublisher<R.ReturnType, NetworkRequestError> {
+        guard let urlRequest = request.urlRequest else {
+            return Fail(outputType: R.ReturnType.self, failure: NetworkRequestError(status: .badRequest))
+                .eraseToAnyPublisher()
+        }
+        typealias RequestPublisher = AnyPublisher<R.ReturnType, NetworkRequestError>
+        let requestPublisher: RequestPublisher = networker.dispatchHeaders(request: urlRequest)
+        return requestPublisher.eraseToAnyPublisher()
+    }
 }

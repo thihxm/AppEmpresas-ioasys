@@ -8,11 +8,42 @@
 import Foundation
 import Combine
 
-
 struct Networker {
     let urlSession: URLSession!
     public init(urlSession: URLSession = .shared) {
         self.urlSession = urlSession
+    }
+    
+    func dispatchHeaders<ReturnType: Codable>(request: URLRequest) -> AnyPublisher<ReturnType, NetworkRequestError> {
+        return urlSession
+            .dataTaskPublisher(for: request)
+            .tryMap({ data, response in
+                if let response = response as? HTTPURLResponse,
+                   !(200...299).contains(response.statusCode) {
+                    var error = httpError(response.statusCode)
+                    if let json = try? JSONDecoder().decode(NetworkRequestError.ErrorRequestDTO.self, from: data) {
+                        error.jsonPayload = json
+                    }
+                    throw error
+                }
+                
+                if let response = response as? HTTPURLResponse {
+                    let headers = response.allHeaderFields
+                    let accessToken = headers["access-token"] as! String
+                    let client = headers["client"] as! String
+                    let uid = headers["uid"] as! String
+                    UserDefaults.standard.setValue(accessToken, forKey: "accessToken")
+                    UserDefaults.standard.setValue(client, forKey: "client")
+                    UserDefaults.standard.setValue(uid, forKey: "uid")
+                }
+                
+                return data
+            })
+            .decode(type: ReturnType.self, decoder: JSONDecoder())
+            .mapError { error in
+                handleError(error)
+            }
+            .eraseToAnyPublisher()
     }
     
     func dispatch<ReturnType: Codable>(request: URLRequest) -> AnyPublisher<ReturnType, NetworkRequestError> {

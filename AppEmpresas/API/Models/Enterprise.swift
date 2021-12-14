@@ -28,4 +28,8 @@ struct Enterprise: Codable {
     let value: Int
     let share_price: Double
     let enterprise_type: EnterpriseType
+    
+    func photoURL() -> URL? {
+        URL(string: "https://empresas.ioasys.com.br\(photo)")
+    }
 }
