@@ -24,6 +24,9 @@
 		AF3F3244276826A300FC6A71 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3F3243276826A300FC6A71 /* AuthenticationService.swift */; };
 		AF3F3246276827F500FC6A71 /* Encodable+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3F3245276827F500FC6A71 /* Encodable+Dictionary.swift */; };
 		AF3F324827683E4000FC6A71 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3F324727683E4000FC6A71 /* LoadingView.swift */; };
+		AF3F324A2768423600FC6A71 /* EnterprisesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3F32492768423600FC6A71 /* EnterprisesService.swift */; };
+		AF3F324C2768430A00FC6A71 /* SearchBusinessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3F324B2768430A00FC6A71 /* SearchBusinessViewModel.swift */; };
+		AF3F324E27685A4100FC6A71 /* EnterpriseCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3F324D27685A4100FC6A71 /* EnterpriseCard.swift */; };
 		AFA57D72276539D400FD4CB4 /* AppEmpresasApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA57D71276539D400FD4CB4 /* AppEmpresasApp.swift */; };
 		AFA57D76276539D500FD4CB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFA57D75276539D500FD4CB4 /* Assets.xcassets */; };
 		AFA57D79276539D500FD4CB4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFA57D78276539D500FD4CB4 /* Preview Assets.xcassets */; };
@@ -54,6 +57,9 @@
 		AF3F3243276826A300FC6A71 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		AF3F3245276827F500FC6A71 /* Encodable+Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Dictionary.swift"; sourceTree = "<group>"; };
 		AF3F324727683E4000FC6A71 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		AF3F32492768423600FC6A71 /* EnterprisesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterprisesService.swift; sourceTree = "<group>"; };
+		AF3F324B2768430A00FC6A71 /* SearchBusinessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBusinessViewModel.swift; sourceTree = "<group>"; };
+		AF3F324D27685A4100FC6A71 /* EnterpriseCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterpriseCard.swift; sourceTree = "<group>"; };
 		AFA57D6E276539D400FD4CB4 /* AppEmpresas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppEmpresas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFA57D71276539D400FD4CB4 /* AppEmpresasApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEmpresasApp.swift; sourceTree = "<group>"; };
 		AFA57D75276539D500FD4CB4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -142,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				AF3F3243276826A300FC6A71 /* AuthenticationService.swift */,
+				AF3F32492768423600FC6A71 /* EnterprisesService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -285,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				AFB744F527679F6400E37741 /* SearchField.swift */,
+				AF3F324D27685A4100FC6A71 /* EnterpriseCard.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -292,6 +300,7 @@
 		AFB744F127679DC800E37741 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				AF3F324B2768430A00FC6A71 /* SearchBusinessViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -383,11 +392,13 @@
 				AFB744EC2767939500E37741 /* BusinessInfoView.swift in Sources */,
 				AFA57D882765435F00FD4CB4 /* Color+AppColors.swift in Sources */,
 				AF3F323027681FD000FC6A71 /* User.swift in Sources */,
+				AF3F324C2768430A00FC6A71 /* SearchBusinessViewModel.swift in Sources */,
 				AFB744EE276794EE00E37741 /* RoundedCornersModifier.swift in Sources */,
 				AF3F324827683E4000FC6A71 /* LoadingView.swift in Sources */,
 				AF3F32272768158300FC6A71 /* NetworkRequestError.swift in Sources */,
 				AF3F3232276820E800FC6A71 /* Enterprise.swift in Sources */,
 				AFB744F627679F6400E37741 /* SearchField.swift in Sources */,
+				AF3F324A2768423600FC6A71 /* EnterprisesService.swift in Sources */,
 				AFA57D852765411D00FD4CB4 /* FloatingLabelField.swift in Sources */,
 				AF3F3244276826A300FC6A71 /* AuthenticationService.swift in Sources */,
 				AF3F322D27681D0000FC6A71 /* APIClient.swift in Sources */,
@@ -398,6 +409,7 @@
 				AF3F322B276815D100FC6A71 /* Request.swift in Sources */,
 				AF3F323F2768242D00FC6A71 /* FindEnterprise.swift in Sources */,
 				AFA57D72276539D400FD4CB4 /* AppEmpresasApp.swift in Sources */,
+				AF3F324E27685A4100FC6A71 /* EnterpriseCard.swift in Sources */,
 				AF3F32292768159C00FC6A71 /* Networker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -546,7 +558,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -575,7 +587,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

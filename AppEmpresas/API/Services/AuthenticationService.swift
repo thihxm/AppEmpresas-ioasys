@@ -21,6 +21,6 @@ class AuthenticationService: AuthenticationServiceProtocol {
     
     func authenticateUser(email: String, password: String) -> AnyPublisher<AuthenticateUser.ReturnType, NetworkRequestError> {
         let userInfo: AuthenticateUserRequestDTO = AuthenticateUserRequestDTO(email: email, password: password)
-        return apiClient.dispatch(AuthenticateUser(body: userInfo.asDictionary))
+        return apiClient.dispatchHeaders(AuthenticateUser(body: userInfo.asDictionary))
     }
 }

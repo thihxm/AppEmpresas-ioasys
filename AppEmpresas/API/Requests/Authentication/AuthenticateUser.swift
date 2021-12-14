@@ -12,6 +12,11 @@ struct AuthenticateUserRequestDTO: Codable {
     let password: String
 }
 
+struct AuthenticateUserDTO: Codable {
+    let email: String
+    let password: String
+}
+
 struct AuthenticateUser: Request {
     typealias ReturnType = User
     var endpoint: Endpoint = Endpoint(path: "/users/auth/sign_in")
