@@ -8,8 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		AF3F322127680F6200FC6A71 /* SearchBusinessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3F322027680F6200FC6A71 /* SearchBusinessView.swift */; };
+		AF3F32252768155300FC6A71 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3F32242768155300FC6A71 /* Endpoint.swift */; };
+		AF3F32272768158300FC6A71 /* NetworkRequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3F32262768158300FC6A71 /* NetworkRequestError.swift */; };
+		AF3F32292768159C00FC6A71 /* Networker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3F32282768159C00FC6A71 /* Networker.swift */; };
+		AF3F322B276815D100FC6A71 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3F322A276815D100FC6A71 /* Request.swift */; };
+		AF3F322D27681D0000FC6A71 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3F322C27681D0000FC6A71 /* APIClient.swift */; };
+		AF3F323027681FD000FC6A71 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3F322F27681FD000FC6A71 /* User.swift */; };
+		AF3F3232276820E800FC6A71 /* Enterprise.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3F3231276820E800FC6A71 /* Enterprise.swift */; };
+		AF3F3234276821B000FC6A71 /* Investor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3F3233276821B000FC6A71 /* Investor.swift */; };
+		AF3F3236276821B800FC6A71 /* Portifolio.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3F3235276821B800FC6A71 /* Portifolio.swift */; };
+		AF3F32392768223F00FC6A71 /* AuthenticateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3F32382768223F00FC6A71 /* AuthenticateUser.swift */; };
+		AF3F323D276822B700FC6A71 /* ListEnterprises.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3F323C276822B700FC6A71 /* ListEnterprises.swift */; };
+		AF3F323F2768242D00FC6A71 /* FindEnterprise.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3F323E2768242D00FC6A71 /* FindEnterprise.swift */; };
+		AF3F32422768266900FC6A71 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3F32412768266900FC6A71 /* LoginViewModel.swift */; };
+		AF3F3244276826A300FC6A71 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3F3243276826A300FC6A71 /* AuthenticationService.swift */; };
+		AF3F3246276827F500FC6A71 /* Encodable+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3F3245276827F500FC6A71 /* Encodable+Dictionary.swift */; };
+		AF3F324827683E4000FC6A71 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3F324727683E4000FC6A71 /* LoadingView.swift */; };
 		AFA57D72276539D400FD4CB4 /* AppEmpresasApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA57D71276539D400FD4CB4 /* AppEmpresasApp.swift */; };
-		AFA57D74276539D400FD4CB4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA57D73276539D400FD4CB4 /* ContentView.swift */; };
 		AFA57D76276539D500FD4CB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFA57D75276539D500FD4CB4 /* Assets.xcassets */; };
 		AFA57D79276539D500FD4CB4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFA57D78276539D500FD4CB4 /* Preview Assets.xcassets */; };
 		AFA57D852765411D00FD4CB4 /* FloatingLabelField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA57D842765411D00FD4CB4 /* FloatingLabelField.swift */; };
@@ -23,9 +38,24 @@
 
 /* Begin PBXFileReference section */
 		AF3F322027680F6200FC6A71 /* SearchBusinessView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBusinessView.swift; sourceTree = "<group>"; };
+		AF3F32242768155300FC6A71 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		AF3F32262768158300FC6A71 /* NetworkRequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestError.swift; sourceTree = "<group>"; };
+		AF3F32282768159C00FC6A71 /* Networker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networker.swift; sourceTree = "<group>"; };
+		AF3F322A276815D100FC6A71 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		AF3F322C27681D0000FC6A71 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		AF3F322F27681FD000FC6A71 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		AF3F3231276820E800FC6A71 /* Enterprise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enterprise.swift; sourceTree = "<group>"; };
+		AF3F3233276821B000FC6A71 /* Investor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Investor.swift; sourceTree = "<group>"; };
+		AF3F3235276821B800FC6A71 /* Portifolio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Portifolio.swift; sourceTree = "<group>"; };
+		AF3F32382768223F00FC6A71 /* AuthenticateUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateUser.swift; sourceTree = "<group>"; };
+		AF3F323C276822B700FC6A71 /* ListEnterprises.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEnterprises.swift; sourceTree = "<group>"; };
+		AF3F323E2768242D00FC6A71 /* FindEnterprise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindEnterprise.swift; sourceTree = "<group>"; };
+		AF3F32412768266900FC6A71 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		AF3F3243276826A300FC6A71 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
+		AF3F3245276827F500FC6A71 /* Encodable+Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Dictionary.swift"; sourceTree = "<group>"; };
+		AF3F324727683E4000FC6A71 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		AFA57D6E276539D400FD4CB4 /* AppEmpresas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppEmpresas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFA57D71276539D400FD4CB4 /* AppEmpresasApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEmpresasApp.swift; sourceTree = "<group>"; };
-		AFA57D73276539D400FD4CB4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AFA57D75276539D500FD4CB4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AFA57D78276539D500FD4CB4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AFA57D842765411D00FD4CB4 /* FloatingLabelField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingLabelField.swift; sourceTree = "<group>"; };
@@ -48,6 +78,74 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF3F32222768153600FC6A71 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				AF3F32232768154600FC6A71 /* Networking */,
+				AF3F322E27681F7000FC6A71 /* Models */,
+				AF3F32372768220C00FC6A71 /* Requests */,
+				AF3F3240276825BC00FC6A71 /* Services */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		AF3F32232768154600FC6A71 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				AF3F32242768155300FC6A71 /* Endpoint.swift */,
+				AF3F32262768158300FC6A71 /* NetworkRequestError.swift */,
+				AF3F32282768159C00FC6A71 /* Networker.swift */,
+				AF3F322A276815D100FC6A71 /* Request.swift */,
+				AF3F322C27681D0000FC6A71 /* APIClient.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		AF3F322E27681F7000FC6A71 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AF3F3231276820E800FC6A71 /* Enterprise.swift */,
+				AF3F3235276821B800FC6A71 /* Portifolio.swift */,
+				AF3F3233276821B000FC6A71 /* Investor.swift */,
+				AF3F322F27681FD000FC6A71 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AF3F32372768220C00FC6A71 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				AF3F323A2768229800FC6A71 /* Authentication */,
+				AF3F323B2768229E00FC6A71 /* Enterprise */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		AF3F323A2768229800FC6A71 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				AF3F32382768223F00FC6A71 /* AuthenticateUser.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		AF3F323B2768229E00FC6A71 /* Enterprise */ = {
+			isa = PBXGroup;
+			children = (
+				AF3F323C276822B700FC6A71 /* ListEnterprises.swift */,
+				AF3F323E2768242D00FC6A71 /* FindEnterprise.swift */,
+			);
+			path = Enterprise;
+			sourceTree = "<group>";
+		};
+		AF3F3240276825BC00FC6A71 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				AF3F3243276826A300FC6A71 /* AuthenticationService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		AFA57D65276539D300FD4CB4 = {
 			isa = PBXGroup;
 			children = (
@@ -67,10 +165,10 @@
 		AFA57D70276539D400FD4CB4 /* AppEmpresas */ = {
 			isa = PBXGroup;
 			children = (
+				AF3F32222768153600FC6A71 /* API */,
 				AFA57D862765434A00FD4CB4 /* Utils */,
 				AFA57D7F276540E000FD4CB4 /* Scenes */,
 				AFA57D71276539D400FD4CB4 /* AppEmpresasApp.swift */,
-				AFA57D73276539D400FD4CB4 /* ContentView.swift */,
 				AFA57D75276539D500FD4CB4 /* Assets.xcassets */,
 				AFA57D77276539D500FD4CB4 /* Preview Content */,
 			);
@@ -109,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				AFA57D89276546ED00FD4CB4 /* LoginView.swift */,
+				AF3F324727683E4000FC6A71 /* LoadingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -116,6 +215,7 @@
 		AFA57D82276540FC00FD4CB4 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				AF3F32412768266900FC6A71 /* LoginViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -134,6 +234,7 @@
 			children = (
 				AFA57D872765435F00FD4CB4 /* Color+AppColors.swift */,
 				AFB744ED276794EE00E37741 /* RoundedCornersModifier.swift */,
+				AF3F3245276827F500FC6A71 /* Encodable+Dictionary.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -273,16 +374,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFA57D74276539D400FD4CB4 /* ContentView.swift in Sources */,
+				AF3F32422768266900FC6A71 /* LoginViewModel.swift in Sources */,
+				AF3F3234276821B000FC6A71 /* Investor.swift in Sources */,
+				AF3F3236276821B800FC6A71 /* Portifolio.swift in Sources */,
+				AF3F323D276822B700FC6A71 /* ListEnterprises.swift in Sources */,
+				AF3F32392768223F00FC6A71 /* AuthenticateUser.swift in Sources */,
 				AFA57D8C276556DF00FD4CB4 /* LoginButton.swift in Sources */,
 				AFB744EC2767939500E37741 /* BusinessInfoView.swift in Sources */,
 				AFA57D882765435F00FD4CB4 /* Color+AppColors.swift in Sources */,
+				AF3F323027681FD000FC6A71 /* User.swift in Sources */,
 				AFB744EE276794EE00E37741 /* RoundedCornersModifier.swift in Sources */,
+				AF3F324827683E4000FC6A71 /* LoadingView.swift in Sources */,
+				AF3F32272768158300FC6A71 /* NetworkRequestError.swift in Sources */,
+				AF3F3232276820E800FC6A71 /* Enterprise.swift in Sources */,
 				AFB744F627679F6400E37741 /* SearchField.swift in Sources */,
 				AFA57D852765411D00FD4CB4 /* FloatingLabelField.swift in Sources */,
+				AF3F3244276826A300FC6A71 /* AuthenticationService.swift in Sources */,
+				AF3F322D27681D0000FC6A71 /* APIClient.swift in Sources */,
 				AFA57D8A276546ED00FD4CB4 /* LoginView.swift in Sources */,
+				AF3F3246276827F500FC6A71 /* Encodable+Dictionary.swift in Sources */,
 				AF3F322127680F6200FC6A71 /* SearchBusinessView.swift in Sources */,
+				AF3F32252768155300FC6A71 /* Endpoint.swift in Sources */,
+				AF3F322B276815D100FC6A71 /* Request.swift in Sources */,
+				AF3F323F2768242D00FC6A71 /* FindEnterprise.swift in Sources */,
 				AFA57D72276539D400FD4CB4 /* AppEmpresasApp.swift in Sources */,
+				AF3F32292768159C00FC6A71 /* Networker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
