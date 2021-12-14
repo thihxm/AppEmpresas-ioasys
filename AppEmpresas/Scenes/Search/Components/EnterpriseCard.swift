@@ -26,22 +26,27 @@ struct EnterpriseCard: View {
                     }
                     .frame(width: 88, height: 128)
                     .clipShape(RoundedRectangle(cornerRadius: 16))
-                .offset(y: -16)
+                    .offset(y: -16)
+                    .shadow(color: .black.opacity(0.2), radius: 8, y: 4)
                 } else {
                     Image(systemName: "wifi.exclamationmark")
+                        .resizable()
+                        .scaledToFill()
+                        .shadow(color: .black.opacity(0.2), radius: 8, y: 4)
                 }
-                    
+                
                 Text(name)
                     .foregroundColor(.appNeutral)
                     .font(.system(size: 14))
+                    .multilineTextAlignment(.center)
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 8)
                     .background(Color.white)
                     .frame(width: 152)
                     .clipShape(RoundedCornersShape(radius: 16, corners: [.bottomLeft, .bottomRight]))
+                    .shadow(color: .black.opacity(0.2), radius: 10, y: 4)
             }
             .frame(width: 152)
-            .shadow(color: .black.opacity(0.2), radius: 10, y: 4)
     }
 }
 

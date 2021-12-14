@@ -49,7 +49,7 @@ struct SearchBusinessView: View {
 
             if let enterprises = vm.enterprises, !vm.searchText.isEmpty {
                 ScrollView {
-                    LazyVGrid(columns: columns) {
+                    LazyVGrid(columns: columns, spacing: 45) {
                         ForEach(enterprises, id: \.id) { enterprise in
                             Button(action: {
                                 vm.selectEnterprise(enterprise)
@@ -59,16 +59,13 @@ struct SearchBusinessView: View {
                             .buttonStyle(PlainButtonStyle())
                         }
                     }
+                    .padding(.vertical, 24)
                 }
-                .padding()
             }
             
             if let selectedEnterprise = vm.selectedEnterprise {
                 NavigationLink("", isActive: $vm.showDetailsView) {
-                    BusinessInfoView(
-                        businessInfo: selectedEnterprise.description,
-                        imageUrl: selectedEnterprise.photoURL()
-                    )
+                    BusinessInfoView(enterprise: selectedEnterprise)
                 }
             }
         }
