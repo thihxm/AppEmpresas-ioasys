@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct LoginView: View {
-    @State private var email: String = ""
-    @State private var password: String = ""
-    @State private var isFilled: Bool = false
+    @ObservedObject var vm: LoginViewModel = LoginViewModel()
     
-    func checkCompletion() -> Bool {
-        !email.isEmpty && !password.isEmpty
+    func invalidEmailMessage() -> String {
+        if !vm.email.isEmpty {
+            return vm.isValidEmail() ? "" : "Endereço de email inválido"
+        }
+        return ""
     }
     
     var body: some View {
@@ -42,13 +43,15 @@ struct LoginView: View {
                     Text("Digite seus dados para continuar")
                     
                     VStack(spacing: 16) {
-                        FloatingLabelField(title: "Email", isSensitive: false, text: $email)
-                        FloatingLabelField(title: "Senha", isSensitive: true, text: $password)
+                        FloatingLabelField(title: "Email", isSensitive: false, errorMessage: invalidEmailMessage(), text: $vm.email)
+                        FloatingLabelField(title: "Senha", isSensitive: true, text: $vm.password)
                     }
                     .padding(.bottom, 10)
                     
-                    LoginButton(isComplete: checkCompletion())
-                        .padding(.bottom, 24)
+                    LoginButton(isComplete: vm.checkCompletion()) {
+                        vm.authenticateUser()
+                    }
+                    .padding(.bottom, 24)
                 }
                 .frame(maxWidth: .infinity)
                 .padding([.horizontal, .top], 24)

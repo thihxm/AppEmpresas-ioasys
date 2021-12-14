@@ -18,8 +18,8 @@ extension Endpoint {
         let apiVersion = "v1"
         var components = URLComponents()
         components.scheme = "https"
-        components.host = "\(devHost)/api/\(apiVersion)"
-        components.path = path
+        components.host = devHost
+        components.path = "/api/\(apiVersion)\(path)"
         components.queryItems = queryItems
         
         guard let url = components.url else { return nil }

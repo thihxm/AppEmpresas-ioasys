@@ -18,19 +18,19 @@ struct FloatingLabelField: View {
     
     private func boderColor() -> Color {
         if !errorMessage.isEmpty {
-            return Color.appError
+            return .appError
         }
         if isFocused {
-            return Color.appSecondary
+            return .appSecondary
         }
-        return Color.appInputBorder
+        return .appInputBorder
     }
     
     private func textColor() -> Color {
         if errorMessage.isEmpty {
             return text.isEmpty ? Color(.placeholderText) : .appNeutral2
         }
-        return Color.appError
+        return .appError
     }
     
     private func showPasswordAction() {
@@ -63,10 +63,14 @@ struct FloatingLabelField: View {
                     if isSensitive {
                         HiddenField(isHidden: !showPassword, text: $text)
                             .foregroundColor(textColor())
+                            .disableAutocorrection(true)
+                            .autocapitalization(.none)
                             .focused($isFocused)
                     } else {
                         TextField("", text: $text)
                             .foregroundColor(textColor())
+                            .disableAutocorrection(true)
+                            .autocapitalization(.none)
                             .focused($isFocused)
                     }
                     

@@ -8,6 +8,15 @@
 import Foundation
 import Combine
 
+public typealias HTTPHeaders = [String: String]
+
+public enum HTTPHeaderField: String {
+    case authentication = "Authorization"
+    case contentType = "Content-Type"
+    case acceptType = "Accept"
+    case acceptEncoding = "Accept-Encoding"
+}
+
 public enum HTTPMethod: String {
     case get = "GET"
     case post = "POST"
@@ -49,7 +58,11 @@ extension Request {
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
         request.httpBody = requestBodyFrom(dict: body)
-        request.allHTTPHeaderFields = headers
+        let defaultHeaders: HTTPHeaders = [
+            HTTPHeaderField.contentType.rawValue: contentType,
+            HTTPHeaderField.acceptType.rawValue: contentType
+        ]
+        request.allHTTPHeaderFields = defaultHeaders.merging(headers ?? [:], uniquingKeysWith: { (first, _) in first })
         return request
     }
 }
