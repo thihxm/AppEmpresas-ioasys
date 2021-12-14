@@ -1,0 +1,68 @@
+//
+//  Request.swift
+//  AppEmpresas
+//
+//  Created by Thiago Medeiros on 13/12/21.
+//
+
+import Foundation
+import Combine
+
+public typealias HTTPHeaders = [String: String]
+
+public enum HTTPHeaderField: String {
+    case authentication = "Authorization"
+    case contentType = "Content-Type"
+    case acceptType = "Accept"
+    case acceptEncoding = "Accept-Encoding"
+}
+
+public enum HTTPMethod: String {
+    case get = "GET"
+    case post = "POST"
+    case put = "PUT"
+    case delete = "DELETE"
+    case patch = "PATCH"
+}
+
+public protocol Request {
+    var endpoint: Endpoint { get }
+    var method: HTTPMethod { get }
+    var contentType: String { get }
+    var body: [String: Any]? { get }
+    var headers: [String: String]? { get }
+    associatedtype ReturnType: Codable
+}
+
+extension Request {
+    // Defaults
+    var method: HTTPMethod { return .get }
+    var contentType: String { return "application/json" }
+    var queryParams: [String: String]? { return nil }
+    var body: [String: Any]? { return nil }
+    var headers: [String: String]? { return nil }
+}
+
+extension Request {
+    private func requestBodyFrom(dict body: [String: Any]?) -> Data? {
+        guard let body = body else { return nil }
+        guard let JSONData = try? JSONSerialization.data(withJSONObject: body, options: []) else { return nil }
+        return JSONData
+    }
+    
+    var urlRequest: URLRequest? {
+        guard let url = endpoint.url else {
+            return nil
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = method.rawValue
+        request.httpBody = requestBodyFrom(dict: body)
+        let defaultHeaders: HTTPHeaders = [
+            HTTPHeaderField.contentType.rawValue: contentType,
+            HTTPHeaderField.acceptType.rawValue: contentType
+        ]
+        request.allHTTPHeaderFields = defaultHeaders.merging(headers ?? [:], uniquingKeysWith: { (first, _) in first })
+        return request
+    }
+}

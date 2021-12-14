@@ -1,5 +1,5 @@
 //
-//  FloatingLabelTextField.swift
+//  FloatingLabelField.swift
 //  AppEmpresas
 //
 //  Created by Thiago Medeiros on 11/12/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FloatingLabelTextField: View {
+struct FloatingLabelField: View {
     let title: String
     let isSensitive: Bool
     var errorMessage: String = ""
@@ -18,19 +18,19 @@ struct FloatingLabelTextField: View {
     
     private func boderColor() -> Color {
         if !errorMessage.isEmpty {
-            return Color.appError
+            return .appError
         }
         if isFocused {
-            return Color.appSecondary
+            return .appSecondary
         }
-        return Color.appInputBorder
+        return .appInputBorder
     }
     
     private func textColor() -> Color {
         if errorMessage.isEmpty {
             return text.isEmpty ? Color(.placeholderText) : .appNeutral2
         }
-        return Color.appError
+        return .appError
     }
     
     private func showPasswordAction() {
@@ -63,10 +63,14 @@ struct FloatingLabelTextField: View {
                     if isSensitive {
                         HiddenField(isHidden: !showPassword, text: $text)
                             .foregroundColor(textColor())
+                            .disableAutocorrection(true)
+                            .autocapitalization(.none)
                             .focused($isFocused)
                     } else {
                         TextField("", text: $text)
                             .foregroundColor(textColor())
+                            .disableAutocorrection(true)
+                            .autocapitalization(.none)
                             .focused($isFocused)
                     }
                     
@@ -105,13 +109,11 @@ fileprivate struct FloatingLabelTextFieldPreview: View {
     @State private var text: String = ""
     
     var body: some View {
-        FloatingLabelTextField(title: "Email", isSensitive: isSensitive, errorMessage: errorMessage, text: $text)
+        FloatingLabelField(title: "Email", isSensitive: isSensitive, errorMessage: errorMessage, text: $text)
     }
 }
 
-struct FloatingLabelTextField_Previews: PreviewProvider {
-    @State static var text: String = ""
-    
+struct FloatingLabelTextField_Previews: PreviewProvider {   
     static var previews: some View {
         Group {
             FloatingLabelTextFieldPreview(isSensitive: false)

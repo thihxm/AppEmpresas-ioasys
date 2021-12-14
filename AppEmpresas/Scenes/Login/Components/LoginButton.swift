@@ -23,11 +23,15 @@ struct LoginButton: View {
                 .clipShape(Capsule())
         }
         .animation(.easeIn(duration: 0.1), value: isComplete)
+        .disabled(!isComplete)
     }
 }
 
+#if DEBUG
 struct LoginButton_Previews: PreviewProvider {
     static var previews: some View {
         LoginButton()
+            .previewLayout(.sizeThatFits)
     }
 }
+#endif
