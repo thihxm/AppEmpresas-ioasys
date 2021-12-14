@@ -11,7 +11,11 @@ import SwiftUI
 struct AppEmpresasApp: App {
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            NavigationView {
+                LoginView()
+                    .navigationTitle("Login")
+                    .navigationBarHidden(true)
+            }
         }
     }
 }

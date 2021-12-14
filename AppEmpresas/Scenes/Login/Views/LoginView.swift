@@ -10,6 +10,8 @@ import SwiftUI
 struct LoginView: View {
     @ObservedObject var vm: LoginViewModel = LoginViewModel()
     
+    @State private var isLoading: Bool = false
+    
     func invalidEmailMessage() -> String {
         if !vm.email.isEmpty {
             return vm.isValidEmail() ? "" : "Endereço de email inválido"
@@ -18,47 +20,61 @@ struct LoginView: View {
     }
     
     var body: some View {
-        VStack {
-            Spacer()
-            VStack(alignment: .leading, spacing: 32) {
-                VStack(alignment: .leading, spacing: 0) {
-                    Text("Boas vindas,")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                    Text("Você está no Empresas.")
-                        .font(.title3)
-                        .fontWeight(.light)
-                }
-                .foregroundColor(.white)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.horizontal, 24)
-                .background(
-                    Image("LoginBG")
-                        .resizable()
-                        .scaledToFill()
-                        .edgesIgnoringSafeArea(.all)
-                )
-                
+        ZStack {
+            VStack {
+                Spacer()
                 VStack(alignment: .leading, spacing: 32) {
-                    Text("Digite seus dados para continuar")
-                    
-                    VStack(spacing: 16) {
-                        FloatingLabelField(title: "Email", isSensitive: false, errorMessage: invalidEmailMessage(), text: $vm.email)
-                        FloatingLabelField(title: "Senha", isSensitive: true, text: $vm.password)
+                    VStack(alignment: .leading, spacing: 0) {
+                        Text("Boas vindas,")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                        Text("Você está no Empresas.")
+                            .font(.title3)
+                            .fontWeight(.light)
                     }
-                    .padding(.bottom, 10)
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal, 24)
+                    .background(
+                        Image("LoginBG")
+                            .resizable()
+                            .scaledToFill()
+                            .edgesIgnoringSafeArea(.all)
+                    )
                     
-                    LoginButton(isComplete: vm.checkCompletion()) {
-                        vm.authenticateUser()
+                    VStack(alignment: .leading, spacing: 32) {
+                        Text("Digite seus dados para continuar")
+                        
+                        VStack(spacing: 16) {
+                            FloatingLabelField(title: "Email", isSensitive: false, errorMessage: invalidEmailMessage(), text: $vm.email)
+                            FloatingLabelField(title: "Senha", isSensitive: true, text: $vm.password)
+                        }
+                        .padding(.bottom, 10)
+                        
+                        LoginButton(isComplete: vm.checkCompletion()) {
+                            withAnimation {
+                                vm.isLoading = true
+                            }
+                            vm.authenticateUser()
+                        }
+                        .padding(.bottom, 24)
                     }
-                    .padding(.bottom, 24)
+                    .frame(maxWidth: .infinity)
+                    .padding([.horizontal, .top], 24)
+                    .background(Color.white.edgesIgnoringSafeArea(.all))
                 }
-                .frame(maxWidth: .infinity)
-                .padding([.horizontal, .top], 24)
-                .background(Color.white.edgesIgnoringSafeArea(.all))
+            }
+            
+            if vm.isLoading {            
+                LoadingView()
+                    .transition(.move(edge: .bottom))
+            }
+            NavigationLink("", isActive: $vm.isAuthenticated) {
+                SearchBusinessView()
+                    .navigationTitle("")
+                    .navigationBarHidden(true)
             }
         }
-        
     }
 }
 

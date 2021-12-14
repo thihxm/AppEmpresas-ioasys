@@ -14,6 +14,9 @@ class LoginViewModel: ObservableObject {
     @Published var email: String = ""
     @Published var password: String = ""
     
+    @Published var isLoading: Bool = false
+    @Published var isAuthenticated: Bool = false
+    
     private var authService: AuthenticationServiceProtocol
     private var cancellables = Set<AnyCancellable>()
     
@@ -22,7 +25,7 @@ class LoginViewModel: ObservableObject {
     }
     
     func checkCompletion() -> Bool {
-        !email.isEmpty && !password.isEmpty
+        !email.isEmpty && isValidEmail() && !password.isEmpty
     }
     
     func isValidEmail() -> Bool {
@@ -35,16 +38,20 @@ class LoginViewModel: ObservableObject {
     func authenticateUser() {
         self.authService.authenticateUser(email: email, password: password)
             .receive(on: DispatchQueue.main)
-            .sink{ completion in
+            .sink{ [weak self] completion in
                 switch completion {
                 case .failure(let error):
+                    self?.isLoading = false
                     print(error)
-                    print(error.jsonPayload)
+                    if let jsonPayload = error.jsonPayload {
+                        print(jsonPayload)
+                    }
                 case .finished: break
                 }
             } receiveValue: { [weak self] user in
-                print(user)
                 self?.user = user
+                self?.isAuthenticated = true
+                self?.isLoading = false
             }
             .store(in: &cancellables)
     }

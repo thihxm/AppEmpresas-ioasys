@@ -20,7 +20,6 @@ struct APIClient {
             return Fail(outputType: R.ReturnType.self, failure: NetworkRequestError(status: .badRequest))
                 .eraseToAnyPublisher()
         }
-        print(urlRequest)
         typealias RequestPublisher = AnyPublisher<R.ReturnType, NetworkRequestError>
         let requestPublisher: RequestPublisher = networker.dispatch(request: urlRequest)
         return requestPublisher.eraseToAnyPublisher()

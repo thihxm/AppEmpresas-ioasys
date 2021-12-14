@@ -23,8 +23,8 @@
 		AF3F32422768266900FC6A71 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3F32412768266900FC6A71 /* LoginViewModel.swift */; };
 		AF3F3244276826A300FC6A71 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3F3243276826A300FC6A71 /* AuthenticationService.swift */; };
 		AF3F3246276827F500FC6A71 /* Encodable+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3F3245276827F500FC6A71 /* Encodable+Dictionary.swift */; };
+		AF3F324827683E4000FC6A71 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3F324727683E4000FC6A71 /* LoadingView.swift */; };
 		AFA57D72276539D400FD4CB4 /* AppEmpresasApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA57D71276539D400FD4CB4 /* AppEmpresasApp.swift */; };
-		AFA57D74276539D400FD4CB4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA57D73276539D400FD4CB4 /* ContentView.swift */; };
 		AFA57D76276539D500FD4CB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFA57D75276539D500FD4CB4 /* Assets.xcassets */; };
 		AFA57D79276539D500FD4CB4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFA57D78276539D500FD4CB4 /* Preview Assets.xcassets */; };
 		AFA57D852765411D00FD4CB4 /* FloatingLabelField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA57D842765411D00FD4CB4 /* FloatingLabelField.swift */; };
@@ -53,9 +53,9 @@
 		AF3F32412768266900FC6A71 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		AF3F3243276826A300FC6A71 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		AF3F3245276827F500FC6A71 /* Encodable+Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Dictionary.swift"; sourceTree = "<group>"; };
+		AF3F324727683E4000FC6A71 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		AFA57D6E276539D400FD4CB4 /* AppEmpresas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppEmpresas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFA57D71276539D400FD4CB4 /* AppEmpresasApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEmpresasApp.swift; sourceTree = "<group>"; };
-		AFA57D73276539D400FD4CB4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AFA57D75276539D500FD4CB4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AFA57D78276539D500FD4CB4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AFA57D842765411D00FD4CB4 /* FloatingLabelField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingLabelField.swift; sourceTree = "<group>"; };
@@ -169,7 +169,6 @@
 				AFA57D862765434A00FD4CB4 /* Utils */,
 				AFA57D7F276540E000FD4CB4 /* Scenes */,
 				AFA57D71276539D400FD4CB4 /* AppEmpresasApp.swift */,
-				AFA57D73276539D400FD4CB4 /* ContentView.swift */,
 				AFA57D75276539D500FD4CB4 /* Assets.xcassets */,
 				AFA57D77276539D500FD4CB4 /* Preview Content */,
 			);
@@ -208,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				AFA57D89276546ED00FD4CB4 /* LoginView.swift */,
+				AF3F324727683E4000FC6A71 /* LoadingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -375,7 +375,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF3F32422768266900FC6A71 /* LoginViewModel.swift in Sources */,
-				AFA57D74276539D400FD4CB4 /* ContentView.swift in Sources */,
 				AF3F3234276821B000FC6A71 /* Investor.swift in Sources */,
 				AF3F3236276821B800FC6A71 /* Portifolio.swift in Sources */,
 				AF3F323D276822B700FC6A71 /* ListEnterprises.swift in Sources */,
@@ -385,6 +384,7 @@
 				AFA57D882765435F00FD4CB4 /* Color+AppColors.swift in Sources */,
 				AF3F323027681FD000FC6A71 /* User.swift in Sources */,
 				AFB744EE276794EE00E37741 /* RoundedCornersModifier.swift in Sources */,
+				AF3F324827683E4000FC6A71 /* LoadingView.swift in Sources */,
 				AF3F32272768158300FC6A71 /* NetworkRequestError.swift in Sources */,
 				AF3F3232276820E800FC6A71 /* Enterprise.swift in Sources */,
 				AFB744F627679F6400E37741 /* SearchField.swift in Sources */,
